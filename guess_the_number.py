@@ -8,6 +8,7 @@ too_high = 'too high'
 
 def configure_range():
     '''Set the high and low values for the random number'''
+
     return 1, 1000
 
 
@@ -34,7 +35,11 @@ def check_guess(guess, secret):
         return 'too low'
 
     if guess > secret:
-        return too_high
+        return 'too_high'
+
+def close_game():
+    Input=input("do you want to play again? press n to end. press any key to play again")
+    return Input.lower()=='n'
 
 
 def main():
@@ -54,8 +59,13 @@ def main():
 
         if result == correct:
             print (f'Guessed {counter} times')
+            if close_game():
+                break
            
-            break
+            
+       
+       
+
 
 
 
